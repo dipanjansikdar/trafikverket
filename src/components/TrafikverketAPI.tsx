@@ -91,35 +91,37 @@ const ResRobotAPI = () => {
             setLoading(false); // Reset loading state once request completes
         }
     };
+    
+
 
     return (
-<div>
-    <h1>Real-Time Transport Info</h1>
+        <div>
+            <h1>Real-Time Transport Info</h1>
     
-    {/* Display user's location if available */}
-    {location && <p>Your Location: {location.lat}, {location.lon}</p>}
+            {/* Display user's location if available */}
+            {location && <p>Your Location: {location.lat}, {location.lon}</p>}
 
-    {/* Show loading message while fetching data */}
-    {loading && <p>Loading transport data...</p>}
+            {/* Show loading message while fetching data */}
+            {loading && <p>Loading transport data...</p>}
 
-    {/* Display error message if there's an issue */}
-    {error && <p style={{ color: "red" }}>{error}</p>}
+            {/* Display error message if there's an issue */}
+            {error && <p style={{ color: "red" }}>{error}</p>}
 
-    {/* Render transport data in a table */}
-    {transportData.length > 0 && (
-        <table className="w-full border-collapse border border-gray-300 " >
-            <thead>
-                <tr className="bg-gray-200 ">
-                    <th className="border border-gray-300 px-4 py-2">Transport</th>
-                    <th className="border border-gray-300 px-4 py-2">Mode</th>
-                    <th className="border border-gray-300 px-4 py-2">From</th>
-                    <th className="border border-gray-300 px-4 py-2">Departure Time</th>
-                    <th className="border border-gray-300 px-4 py-2">Destination</th>
-                    <th className="border border-gray-300 px-4 py-2">Track</th>
-                </tr>
-            </thead>
-            <tbody>
-                {transportData.map((transport, index) => (
+            {/* Render transport data in a table */}
+            {transportData.length > 0 && (
+            <table className="w-full border-collapse border border-gray-300 " >
+                <thead>
+                    <tr className="bg-gray-200 ">
+                        <th className="border border-gray-300 px-4 py-2">Transport</th>
+                        <th className="border border-gray-300 px-4 py-2">Mode</th>
+                        <th className="border border-gray-300 px-4 py-2">From</th>
+                        <th className="border border-gray-300 px-4 py-2">Departure Time</th>
+                        <th className="border border-gray-300 px-4 py-2">Destination</th>
+                        <th className="border border-gray-300 px-4 py-2">Track</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {transportData.map((transport, index) => (
                     <tr key={index} className="text-center border border-gray-300">
                         <td className="border border-gray-300 px-4 py-2">{transport.name}</td>
                         <td className="border border-gray-300 px-4 py-2">{transport.ProductAtStop.catCode}</td>
@@ -129,10 +131,10 @@ const ResRobotAPI = () => {
                         <td className="border border-gray-300 px-4 py-2">{transport.ProductAtStop.line || "N/A"}</td>
                     </tr>
                 ))}
-            </tbody>
-        </table>
-    )}
-</div>
+                </tbody>
+            </table>
+        )}
+        </div>
 
     );
 };
