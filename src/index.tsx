@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "./index.css"; // Ensure this file contains the Tailwind directives
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
